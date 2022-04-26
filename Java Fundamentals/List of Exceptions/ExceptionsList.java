@@ -14,7 +14,7 @@ public class ExceptionsList{
             Integer castedValue = (Integer) myList.get(i);
             }
             catch(Exception e){
-                System.out.println("String Can't be Cast to Integer");
+                System.out.println(e.getMessage());
             }
         }
         
