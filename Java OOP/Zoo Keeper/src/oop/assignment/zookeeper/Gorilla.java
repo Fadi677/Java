@@ -2,7 +2,10 @@ package oop.assignment.zookeeper;
 
 public class Gorilla extends Mammal{
 	
-
+	public Gorilla() {
+		
+	}
+	
 	@Override
 	public void setEnergyLevel(int energyLevel) {
 		// TODO Auto-generated method stub
