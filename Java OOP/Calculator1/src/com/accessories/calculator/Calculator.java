@@ -1,6 +1,6 @@
 package com.accessories.calculator;
 
-public class Calculator {
+public class Calculator implements java.io.Serializable {
 
 		private Double operandOne;
 		private Double operandTwo;
@@ -41,6 +41,12 @@ public class Calculator {
 			}
 			else if(oper=='-') {
 				result=x-y;
+			}
+			else if(oper=='*') {
+				result=x*y;
+			}
+			else if(oper=='/') {
+				result=x/y;
 			}
 			return result;
 		}

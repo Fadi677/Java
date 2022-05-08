@@ -3,9 +3,6 @@ import java.util.ArrayList;
 
 public class Calculator {
 
-	public Calculator() {
-		// TODO Auto-generated constructor stub
-	}
 	
 	boolean numCheck(String num){
 	        try{
@@ -17,7 +14,7 @@ public class Calculator {
 	        }
 	    }
 
-	    boolean operatorCheck(Character op){
+	boolean operatorCheck(Character op){
 	        return op == '+' || op == '-' || op == '*' || op == '/';
 	    }
 
@@ -53,7 +50,7 @@ public class Calculator {
 	            numbers.remove(1);
 	            operators.remove(0);
 	        }
-	        // we use output for clairty, you can also return 'numbers.get(0)'
+	        // we use output for clarity, you can also return 'numbers.get(0)'
 	        output = numbers.get(0);
 	        return output;
 	    }
