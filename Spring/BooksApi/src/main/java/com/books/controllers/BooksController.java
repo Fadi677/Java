@@ -21,8 +21,10 @@ public class BooksController {
 	    }
 	 
 	 	@RequestMapping("/books")
-	    public List<Book> index() {
-	        return bookServiceC.allBooks();
+	 	public String index(Model model) {
+	    List<Book> listOfBooks=bookServiceC.allBooks();
+	    model.addAttribute("allBooks", listOfBooks);
+	    return "showAll.jsp";
 	    }
 	    
 	    @RequestMapping(value="/books/create", method=RequestMethod.POST)
@@ -38,17 +40,17 @@ public class BooksController {
 	        return "show.jsp";
 	    }
 	    
-	    @RequestMapping(value="/books/{id}/update", method=RequestMethod.PUT)
-	    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages){
-	    	Book book=bookServiceC.update(id, title, desc, lang,numOfPages);
-	    	return book;
-	    }
-	    
-	    @RequestMapping("/books/{id}/delete")
-	    public void deleteBook(@PathVariable("id") Long id) {
-	    	bookServiceC.deleteThisBook(id);
-	 
-	    }
+//	    @RequestMapping(value="/books/{id}/update", method=RequestMethod.PUT)
+//	    public Book update(@PathVariable("id") Long id, @RequestParam(value="title") String title, @RequestParam(value="description") String desc, @RequestParam(value="language") String lang, @RequestParam(value="pages") Integer numOfPages){
+//	    	Book book=bookServiceC.update(id, title, desc, lang,numOfPages);
+//	    	return book;
+//	    }
+//	    
+//	    @RequestMapping("/books/{id}/delete")
+//	    public void deleteBook(@PathVariable("id") Long id) {
+//	    	bookServiceC.deleteThisBook(id);
+//	 
+//	    }
 	 
 	 
 }
