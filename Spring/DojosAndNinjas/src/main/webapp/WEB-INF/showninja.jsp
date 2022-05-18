@@ -7,13 +7,11 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>All Ninjas Page</title>
+<title>${thisNinja.ninjaFirstName}</title>
 </head>
 <body>
-	<h1>All Ninjas</h1>
-	<c:forEach var="ninja" items="${allTheNinjas}">
-		<li><a href="ninjas/${ninja.id }">${ninja.ninjaFirstName} ${ninja.ninjaLastName}</a></li>
-	</c:forEach>
-	<a href="ninjas/new">Create New Ninja</a>
+	<h1><span>${thisNinja.ninjaFirstName} ${thisNinja.ninjaFirstName}</span></h1>
+	<li>${thisNinja.ninjaAge}</li>
+	<li>${thisNinja.dojo.dojoName}</li>
 </body>
 </html>

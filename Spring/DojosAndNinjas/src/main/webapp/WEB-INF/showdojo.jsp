@@ -20,19 +20,13 @@
         </tr>
     </thead>
     <tbody>
-    <c:forEach var="" items="${}">
-    	<tr>
-    		<td>
-    			<a href='//<c:out value="${}"/>'>${}</a>
-    		</td>
-    		<td>
-    			<c:out value="${}"></c:out>
-    		</td>
-    		<td>
-    			<c:out value="${}"></c:out>
-    		</td>
-    	</tr>
-    </c:forEach>
+    	<c:forEach var="ninja" items="${thisDojo.ninjas}">
+    		<tr>
+    			<td>${ninja.getNinjaFirstName()}</td>
+    			<td>${ninja.getNinjaLastName()}</td>
+    			<td>${ninja.getNinjaAge()}</td>
+    		</tr>
+   		</c:forEach>
     </tbody>
 </table>
 </body>

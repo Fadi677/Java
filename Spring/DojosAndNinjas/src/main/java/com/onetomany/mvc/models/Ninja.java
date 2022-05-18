@@ -1,6 +1,7 @@
 package com.onetomany.mvc.models;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,10 +33,11 @@ public class Ninja {
         
     }
     
-    public Ninja(String ninjaFirstName, String ninjaLastName, int ninjaAge) {
+    public Ninja(String ninjaFirstName, String ninjaLastName, int ninjaAge, Dojo dojo) {
     	this.ninjaFirstName=ninjaFirstName;
     	this.ninjaLastName=ninjaLastName;
     	this.ninjaAge=ninjaAge;
+    	this.dojo= dojo;
     }
 
 	public Long getId() {
@@ -77,7 +79,6 @@ public class Ninja {
 	public void setDojo(Dojo dojo) {
 		this.dojo = dojo;
 	}
-    
     
     
 }

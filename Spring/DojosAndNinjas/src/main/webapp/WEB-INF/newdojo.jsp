@@ -13,10 +13,10 @@
 	<form:form action="/dojos/new" method="post" modelAttribute="createNewDojo">
     	<p>
         	<form:label path="dojoName">Name: </form:label>
-        	<form:errors path="dojoName"/>
         	<form:input path="dojoName"/>
+        	<form:errors path="dojoName"/>
     	</p>  
     	<input type="submit" value="Create"/>
-	</form:form> 
+	</form:form>
 </body>
 </html>

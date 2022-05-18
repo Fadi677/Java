@@ -47,7 +47,7 @@ public class DojosNinjasController {
 	}
 	
 	@GetMapping("/dojos/new")
-	public String createDojo(@Valid @ModelAttribute("createNewDojo") Dojo newDojo, BindingResult result) {
+	public String createDojo(@ModelAttribute("createNewDojo") Dojo newDojo) {
 		return "newdojo.jsp";
 	}
 	
@@ -57,6 +57,7 @@ public class DojosNinjasController {
 			return "newdojo.jsp";
 		}
 		else {
+			///////////
 			dojoService.createDojo(newDojo);
 			return "redirect:/dojos";
 		}
@@ -70,7 +71,7 @@ public class DojosNinjasController {
 	}
 	
 	@GetMapping("/ninjas/new")
-	public String createNinja(@Valid @ModelAttribute("createNewNinja") Ninja newNinja, BindingResult result, Model model) {
+	public String createNinja(@ModelAttribute("createNewNinja") Ninja newNinja, Model model) {
 		List<Dojo> allDojos=dojoService.allDojos();
 		model.addAttribute("dojosList",allDojos );
 		return "newninja.jsp";
@@ -82,9 +83,17 @@ public class DojosNinjasController {
 			return "newninja.jsp";
 		}
 		else {
-			ninjaService.createNinja(newNinja);
-			return "redirect:/ninjas";
+			Ninja addedNinja=ninjaService.createNinja(newNinja);
+			Long newNinjaId=addedNinja.getId();
+			return "redirect:/ninjas/"+newNinjaId;
 		}
+	}
+	
+	@GetMapping("/ninjas/{id}")
+	public String showNinja( @PathVariable("id") Long id, Model model) {
+		Ninja ninja=ninjaService.findNinja(id);
+		model.addAttribute("thisNinja", ninja);
+		return "showninja.jsp";
 	}
 	
 }

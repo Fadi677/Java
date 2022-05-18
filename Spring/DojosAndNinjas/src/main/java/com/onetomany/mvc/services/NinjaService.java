@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
+import com.onetomany.mvc.models.Dojo;
 import com.onetomany.mvc.models.Ninja;
 import com.onetomany.mvc.repositories.NinjaRepository;
 
@@ -13,9 +14,11 @@ import com.onetomany.mvc.repositories.NinjaRepository;
 @Service
 public class NinjaService {
 private final NinjaRepository ninjaRepository;
-	
-	public NinjaService(NinjaRepository ninjaRepository) {
+private final DojoService dojoService;
+
+	public NinjaService(NinjaRepository ninjaRepository, DojoService dojoService) {
 		this.ninjaRepository=ninjaRepository;
+		this.dojoService=dojoService;
 	}
 	
 	//get all ninja
@@ -24,8 +27,8 @@ private final NinjaRepository ninjaRepository;
 	}
 	
 	//create new ninja
-	public Ninja createNinja(Ninja dojo) {
-		return ninjaRepository.save(dojo);
+	public Ninja createNinja(Ninja ninja) {
+		return ninjaRepository.save(ninja);
 	}
 	
 	//get a ninja
@@ -49,4 +52,8 @@ private final NinjaRepository ninjaRepository;
 		Ninja requiredNinja=findNinja(id);
 		ninjaRepository.delete(requiredNinja);
 	}
+	
+	//get all ninjas for a dojo
+	
+	
 }
