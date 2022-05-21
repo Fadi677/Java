@@ -86,19 +86,19 @@ public class HomeController {
         return "redirect:/bookmarket";
     }
     
-    @GetMapping("/books")
-    public String showHome(Model model, HttpSession session) {
-    	if (session.getAttribute("userId")!=null) {
-    		Long userId= (Long) session.getAttribute("userId");
-    		User currentUser=userServ.findUserById(userId);
-    		model.addAttribute("currentUser", currentUser);
-    		List<Book> allBooks=bookServ.allBooks();
-    		model.addAttribute("allTheBooks", allBooks);
-    		System.out.println("Im in the Controller!!!"+allBooks);
-    		return "home.jsp";
-    	}
-    		return "redirect:/";
-    }
+//    @GetMapping("/books")
+//    public String showHome(Model model, HttpSession session) {
+//    	if (session.getAttribute("userId")!=null) {
+//    		Long userId= (Long) session.getAttribute("userId");
+//    		User currentUser=userServ.findUserById(userId);
+//    		model.addAttribute("currentUser", currentUser);
+//    		List<Book> allBooks=bookServ.allBooks();
+//    		model.addAttribute("allTheBooks", allBooks);
+//    		System.out.println("Im in the Controller!!!"+allBooks);
+//    		return "home.jsp";
+//    	}
+//    		return "redirect:/";
+//    }
     
     @GetMapping("/bookmarket")
     public String showBookMarket(Model model, HttpSession session) {
